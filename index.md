@@ -1,16 +1,18 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: default
 ---
 
 # Repositories
 
-<ul>
-{% for repo in site.pages %}
-  {% if repo.layout == 'repo' %}
-  <li><a href="/repos/{{repo.id}}">{{repo.title}}</a></li>
-  {% endif %}
+[View all](all/) (beware this is a very long list)
+
+{% assign states = site.pages | where: "layout","repo" | group_by:"state" %}
+
+{% for page in states %}
+  <h1>{{page.name}}</h1>
+  <ul>
+    {% for item in page.items %}
+    <li>{{item.title}}</li>
+    {% endfor %}
+  </ul>
 {% endfor %}
-</ul>
