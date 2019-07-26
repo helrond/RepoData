@@ -1,0 +1,61 @@
+---
+layout: default
+---
+{% capture page_id %}{{page.id}}{% endcapture %}
+{% assign repo = site.data[page_id] %}
+
+<h1>
+  {{page.title}}{% if repo["Repository Name Authorized"] %} <span class="badge badge-secondary">authorized</span>{% endif %}
+</h1>
+{%- if repo.URL -%}
+  <a href="{{repo.URL}}"><i class="fas fa-globe-africa"></i> Website</a>
+{%- endif -%}
+
+{% if repo["Repository Type"] %}
+<i class="fas fa-landmark"></i> {{repo["Repository Type"]}}
+{% endif %}
+
+<!-- <p>Identifier: {{repo["Repository Identifier Authorized"]}}</p> -->
+
+<h2>Location <small><span class="badge badge-secondary">{{repo["Location Type"]}}</span></small></h2>
+<address>
+  {{repo["Main Address"]}}{% if repo["Main Address"] %}<br />{% endif %}
+  {{repo["Street Address 2"]}}{% if repo["Street Address 2"] %}<br />{% endif %}
+  {{repo["St City"]}}, {{repo.State}} {{repo["St Zip Code (5 Numbers)"]}}{% if repo["St Zip Code (4 Following Numbers)"] %}-{{repo["St Zip Code (4 Following Numbers)"]}}{% endif %}<br />
+  {% if repo["Street Address County"] %}{{repo["Street Address County"]}} County<br />{% endif %}
+</address>
+{% if repo["Parent Org (Unauthorized)"] %}
+<p>Part of {{repo["Parent Org (Unauthorized)"]}}</p>
+{% endif %}
+<p>Lat/Long: {{repo.Latitude}}/{{repo.Longitude}}</p>
+
+{% if repo.Notes or repo["Name Notes"] %}
+<h2>Notes</h2>
+<p>{{repo.Notes}}</p>
+<p>{{repo["Name Notes"]}}</p>
+{% endif %}
+
+<div class="card">
+  <div class="card-header">
+    <h2>Administrative information</h2>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <p>Recorded on {{repo["Date Entry Recorded"]}} by {{repo["Entry Recorded By"]}}
+      </div>
+      <div class="col">
+        <p>Data Source:
+          {% if repo['URL of Source of Repository Data'] %}<a href="{{repo['URL of Source of Repository Data']}}">{{repo["Source of Repository Data"]}}</a>
+          {% else %}{{repo["Source of Repository Data"]}}{% endif %}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col mt-3">
+<code>
+{{repo}}
+</code>
+</div>
