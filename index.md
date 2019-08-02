@@ -4,6 +4,6 @@ layout: default
 
 # Repositories
 
-[All Repositories](name/) (beware this is a very long list)
+[Repositories by name](name/)
 
-[Repositories by State](state/)
+[Repositories by state](state/)
