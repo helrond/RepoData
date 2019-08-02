@@ -11,7 +11,7 @@ permalink: /state/
   <h2>{{page.name}}</h2>
   <div class="twoColumns">
     {% for item in page.items %}
-    <a href="{{site.baseurl}}/repos/{{item.id}}">{{item.title}}</a>
+    <p><a href="{{site.baseurl}}/repos/{{item.id}}">{{item.title}}</a></p>
     {% endfor %}
   </div>
 {% endfor %}
