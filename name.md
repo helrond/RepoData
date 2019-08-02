@@ -13,7 +13,7 @@ permalink: /name/
   {% for repo in site.pages %}
     {% assign first = repo.title | slice: 0 %}
     {% if repo.layout == 'repo' and first == letter %}
-    <a href="/repos/{{repo.id}}">{{repo.title}}</a>
+    <a href="{{site.baseurl}}/repos/{{repo.id}}">{{repo.title}}</a>
     {% endif %}
   {% endfor %}
   </div>

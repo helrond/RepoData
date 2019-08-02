@@ -1,5 +1,6 @@
 ---
 layout: default
+permalink: /state/
 ---
 
 # Repositories by State
@@ -10,7 +11,7 @@ layout: default
   <h2>{{page.name}}</h2>
   <div class="twoColumns">
     {% for item in page.items %}
-    <a href="/repos/{{item.id}}">{{item.title}}</a>
+    <a href="{{site.baseurl}}/repos/{{item.id}}">{{item.title}}</a>
     {% endfor %}
   </div>
 {% endfor %}
