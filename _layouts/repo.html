@@ -53,8 +53,13 @@ layout: default
   </div>
 </div>
 
-<div class="col mt-3">
-  <code>
-    {{repo | jsonify }}
-  </code>
+<div class="card mt-3">
+  <div class="card-header">
+    <h2>Data</h2>
+  </div>
+  <div class="card-body">
+    <code>
+      {{repo | jsonify }}
+    </code>
+  </div>
 </div>

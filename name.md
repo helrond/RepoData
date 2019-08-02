@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /all/
+permalink: /name/
 ---
 
 # All Repositories
@@ -9,12 +9,12 @@ permalink: /all/
 
 {% for letter in alphabet %}
   <h2>{{letter}}</h2>
-  <ul>
+  <div class="twoColumns">
   {% for repo in site.pages %}
     {% assign first = repo.title | slice: 0 %}
     {% if repo.layout == 'repo' and first == letter %}
-    <li><a href="/repos/{{repo.id}}">{{repo.title}}</a></li>
+    <a href="/repos/{{repo.id}}">{{repo.title}}</a>
     {% endif %}
   {% endfor %}
-  </ul>
+  </div>
 {% endfor %}

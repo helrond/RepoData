@@ -7,10 +7,10 @@ layout: default
 {% assign states = site.pages | where: "layout","repo" | group_by:"state" %}
 
 {% for page in states %}
-  <h1>{{page.name}}</h1>
-  <ul>
+  <h2>{{page.name}}</h2>
+  <div class="twoColumns">
     {% for item in page.items %}
-    <li><a href="/repos/{{item.id}}">{{item.title}}</a></li>
+    <a href="/repos/{{item.id}}">{{item.title}}</a>
     {% endfor %}
-  </ul>
+  </div>
 {% endfor %}
